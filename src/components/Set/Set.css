@@ -1,0 +1,21 @@
+.set-container {
+    margin-bottom: 20px;
+}
+
+.set-container .accodion-button {
+    border: 1px solid black;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 32px;
+    padding: 8px;
+}
+
+.set-container .accordion-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.set-container .accordion-content.hide {
+    display: none;
+}

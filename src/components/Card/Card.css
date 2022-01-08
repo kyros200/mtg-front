@@ -1,0 +1,41 @@
+.card-container {
+    width: 250px;
+    background-color: #aaaaaa;
+    border: 1px solid black;
+    border-radius: 8px;
+    padding: 6px;
+}
+
+.card-container.have {
+    background-color: #9FD39C;
+}
+
+.card-container .image {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.card-container .image img {
+    width: 100%;
+}
+
+.card-container .name-container {
+    display: flex;
+    justify-content: center;
+}
+
+.card-container .prices {
+    display: flex;
+    justify-content: space-around;
+}
+
+.card-container .links {
+    display: flex;
+    justify-content: space-around;
+    font-size: 12px;
+}
+
+.card-container .button {
+    text-align: center;
+}
