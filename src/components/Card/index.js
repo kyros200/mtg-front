@@ -5,11 +5,11 @@ const Card = (props) => {
 
     return (
         <div key={props.id} className={`card-container ${props.have ? "have" : ""}`}>
-            <div className='name-container'>
+            <div className='name'>
                 {props.name}
             </div>
             <div className='image'>
-                <img src={props.imageUrl || cardBack} alt={props.name}/>
+                <img src={props.imageUrl || cardBack} alt={props.name} loading="lazy"/>
             </div>
             <div className='prices'>
                 <div className='price'>
@@ -36,7 +36,7 @@ const Card = (props) => {
                     </div>
                 </a>
             </div>
-            <div className='button' onClick={() => props.collection(props)}>
+            <div className={`button ${props.have ? "red" : ""}`} onClick={() => props.collection(props)}>
                 {props.have ? "Remove from Collection" : "Add to Collection"}
             </div>
         </div>

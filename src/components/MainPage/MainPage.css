@@ -29,41 +29,6 @@
     font-size: 16px;
 }
 
-.whole-container .main-container .search-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-bottom: 40px;
-}
-
-.whole-container .main-container .search-container .search-fields {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.whole-container .main-container .search-container .search-fields .input {
-    margin-right: 12px;
-}
-
-.whole-container .main-container .search-container .search-fields .button {
-    font-size: 14px;
-    background-color: #9FD39C;
-    border: 1px solid black;
-    border-radius: 12px;
-    padding: 6px;
-}
-
-.whole-container .main-container .search-container .search-count-result {
-    text-align: center;
-}
-
-.whole-container .main-container .search-container .search-count-result .number {
-    font-size: 32px;
-    font-weight: 700;
-}
-
 .result-container {
     display: flex;
     flex-direction: column;

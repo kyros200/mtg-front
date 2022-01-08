@@ -3,6 +3,7 @@ import { toast } from 'react-toastify';
 import ReactLoading from 'react-loading';
 import Modal from '../Modal';
 import Set from '../Set';
+import Search from '../Search'
 import './MainPage.css';
 
 // const BACK_URL = "http://localhost:80"
@@ -93,16 +94,13 @@ const MainPage = () => {
                         najjar-mtg
                     </div>
                 </div>
-                <div className={`search-container`}>
-                    <div className='search-fields'>
-                        <input className='input' placeholder='Card Name...' value={searchText} onChange={(e) => setSearchText(e.target.value)}/>
-                        <input className='input' placeholder='Set Name...' value={searchSet} onChange={(e) => setSearchSet(e.target.value)}/>
-                        <div className='button' onClick={() => load()}>Search</div>
-                    </div>
-                    <div className='search-count-result'>
-                        <span className='number'>{count}</span> cards found from <span className='number'>{countSets}</span> sets
-                    </div>
-                </div>
+                <Search 
+                    count={count} 
+                    countSets={countSets}
+                    setSearchText={setSearchText}
+                    setSearchSet={setSearchSet}
+                    load={load}
+                />
                 <div className={`result-container`}>
                     {renderSets()}
                 </div>

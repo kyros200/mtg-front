@@ -1,41 +1,85 @@
 .card-container {
     width: 250px;
-    background-color: #aaaaaa;
+    background-color: #DDDDDD;
     border: 1px solid black;
     border-radius: 8px;
     padding: 6px;
+    margin: 8px 0px;
 }
 
 .card-container.have {
     background-color: #9FD39C;
 }
 
+.card-container .name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: flex;
+    justify-content: center;
+    margin-top: 4px;
+    margin-bottom: 8px;
+}
+
 .card-container .image {
     display: flex;
     justify-content: center;
     width: 100%;
+    margin-bottom: 8px;
 }
 
 .card-container .image img {
+    border-radius: 12px;
     width: 100%;
-}
-
-.card-container .name-container {
-    display: flex;
-    justify-content: center;
 }
 
 .card-container .prices {
     display: flex;
     justify-content: space-around;
+    margin-bottom: 8px;
 }
 
 .card-container .links {
     display: flex;
     justify-content: space-around;
     font-size: 12px;
+    margin-bottom: 8px;
+}
+
+.card-container .links a {
+    text-decoration: none;
+    color: black;
+    background-color: #aaaaaa;
+    border: 1px solid black;
+    border-radius: 12px;
+    padding: 4px;
+    transition: 0.1s;
+    text-align: center;
+}
+
+.card-container .links a:hover {
+    background-color: #a0a0a0;
 }
 
 .card-container .button {
+    cursor: pointer;
+    font-size: 14px;
+    background-color: #9FD39C;
+    border: 1px solid black;
+    border-radius: 12px;
+    padding: 6px;
+    transition: 0.1s;
     text-align: center;
+}
+
+.card-container .button:hover {
+    background-color: #2B912D;
+}
+
+.card-container .button.red {
+    background-color: #DDDDDD;
+}
+
+.card-container .button.red:hover {
+    background-color: #da3232;
 }
