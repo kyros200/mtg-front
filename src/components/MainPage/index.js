@@ -15,6 +15,7 @@ const MainPage = () => {
     const [count, setCount] = useState(0)
     const [countSets, setCountSets] = useState(0)
     const [searchText, setSearchText] = useState("Chandra")
+    const [searchSet, setSearchSet] = useState("")
 
     useEffect(() => {
         load();
@@ -23,7 +24,7 @@ const MainPage = () => {
 
     const load = () => {
         setIsLoading(true)
-        fetch(`${BACK_URL}/search?name=${searchText}`)
+        fetch(`${BACK_URL}/search?name=${searchText}&setName=${searchSet}`)
         .then((res) => {
             if(res.status !== 200) {
                 throw(new Error("Something went wrong!"))
@@ -94,7 +95,8 @@ const MainPage = () => {
                 </div>
                 <div className={`search-container`}>
                     <div className='search-fields'>
-                        <input className='input' value={searchText} onChange={(e) => setSearchText(e.target.value)}/>
+                        <input className='input' placeholder='Card Name...' value={searchText} onChange={(e) => setSearchText(e.target.value)}/>
+                        <input className='input' placeholder='Set Name...' value={searchSet} onChange={(e) => setSearchSet(e.target.value)}/>
                         <div className='button' onClick={() => load()}>Search</div>
                     </div>
                     <div className='search-count-result'>

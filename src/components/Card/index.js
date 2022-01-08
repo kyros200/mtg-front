@@ -1,4 +1,5 @@
 import './Card.css'
+import cardBack from '../../images/card_back.jpg'
 
 const Card = (props) => {
 
@@ -8,7 +9,7 @@ const Card = (props) => {
                 {props.name}
             </div>
             <div className='image'>
-                <img src={props.imageUrl} alt={props.name}/>
+                <img src={props.imageUrl || cardBack} alt={props.name}/>
             </div>
             <div className='prices'>
                 <div className='price'>
