@@ -5,6 +5,9 @@ import Modal from '../Modal';
 import Set from '../Set';
 import './MainPage.css';
 
+// const BACK_URL = "http://localhost:80"
+const BACK_URL = "https://najjar-mtg.herokuapp.com"
+
 const MainPage = () => {
 
     const [isLoading, setIsLoading] = useState(false)
@@ -15,14 +18,15 @@ const MainPage = () => {
 
     useEffect(() => {
         load();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-    const load = (sendToast = true) => {
+    const load = () => {
         setIsLoading(true)
-        fetch(`http://localhost:80/search?name=${searchText}`)
+        fetch(`${BACK_URL}/search?name=${searchText}`)
         .then((res) => {
             if(res.status !== 200) {
-                throw("Something went wrong!")
+                throw(new Error("Something went wrong!"))
             }
             return res.json()
         })
@@ -30,7 +34,7 @@ const MainPage = () => {
             setData(res.data);
             setCount(res.count);
             setCountSets(res.countSets)
-            if(sendToast) toast.success(`${res.count} cards found!`)
+            toast.success(`${res.count} cards found!`)
         })
         .catch((e) => {
             toast.error(e)
@@ -46,10 +50,10 @@ const MainPage = () => {
         delete card.collection; //useless info
 
         setIsLoading(true)
-        fetch(`http://localhost:80/collection?id=${card.id}&have=${card.have ? 0 : 1}`)
+        fetch(`${BACK_URL}/collection?id=${card.id}&have=${card.have ? 0 : 1}`)
         .then((res) => {
             if(res.status !== 200) {
-                throw("Something went wrong!")
+                throw(new Error("Something went wrong!"))
             }
             return res.json()
         })
@@ -61,7 +65,7 @@ const MainPage = () => {
             newData[card.setId].cards[index] = {...card, have: card.have ? 0 : 1};
             
             setData(newData);
-            toast.success(`${card.name} ${card.have ? "removed" : "added"} from collection! Refreshing...`)
+            toast.success(`${card.name} ${card.have ? "removed" : "added"} from collection!`)
         })
         .catch((e) => {
             toast.error(e)

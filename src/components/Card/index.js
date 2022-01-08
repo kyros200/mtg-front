@@ -8,7 +8,7 @@ const Card = (props) => {
                 {props.name}
             </div>
             <div className='image'>
-                <img src={props.imageUrl} />
+                <img src={props.imageUrl} alt={props.name}/>
             </div>
             <div className='prices'>
                 <div className='price'>
@@ -19,17 +19,17 @@ const Card = (props) => {
                 </div>
             </div>
             <div className='links'>
-                <a href={props.urlTcg} target={"_blank"}>
+                <a href={props.urlTcg} target={"_blank"} rel="noreferrer">
                     <div className='link'>
                         TCGPlayer
                     </div>
                 </a>
-                <a href={props.urlCm} target={"_blank"}>
+                <a href={props.urlCm} target={"_blank"} rel="noreferrer">
                     <div className='link'>
                         CardMarket
                     </div>
                 </a>
-                <a href={props.urlCh} target={"_blank"}>
+                <a href={props.urlCh} target={"_blank"} rel="noreferrer">
                     <div className='link'>
                         CardHoarder
                     </div>
