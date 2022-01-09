@@ -80,7 +80,6 @@ const MainPage = () => {
 
     const renderSets = () => {
         return Object.keys(data).map((set) => <Set key={set.setId} collection={collection} {...data[set]}/>)
-            
     }
 
     return (
@@ -91,10 +90,11 @@ const MainPage = () => {
                 </Modal>
                 <div className={`title-container`}>
                     <div className={`title`}>
-                        najjar-mtg
+                        <h1>najjar-mtg</h1>
                     </div>
                 </div>
                 <Search 
+                    data={data}
                     count={count} 
                     countSets={countSets}
                     setSearchText={setSearchText}

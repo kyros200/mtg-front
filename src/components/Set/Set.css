@@ -12,6 +12,16 @@
     padding: 8px;
 }
 
+.set-container .accodion-button .set-name {
+    display: flex;
+    align-items: center;
+}
+
+.set-container .accodion-button .set-name img {
+    height: 40px;
+    margin-right: 12px;
+}
+
 .set-container .accodion-button.completed {
     background-color: green;
 }

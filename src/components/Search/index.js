@@ -1,6 +1,11 @@
 import './Search.css'
 
 const Search = (props) => {
+    let allCards = [];
+    Object.keys(props.data).forEach((set) => {
+        allCards = [...allCards, ...props.data[set].cards]
+    })
+    const collectedCards = allCards.reduce((a, v) => {return a + v.have}, 0)
     return (
         <div className={`search-container`}>
             <div className='search-fields'>
@@ -10,6 +15,9 @@ const Search = (props) => {
             </div>
             <div className='search-count-result'>
                 <span className='number'>{props.count}</span> cards found from <span className='number'>{props.countSets}</span> sets
+            </div>
+            <div className='search-count-result'>
+                You have collected <span className='number'>{collectedCards}</span> ({(collectedCards / props.count * 100).toFixed(2)}%) cards from this search
             </div>
         </div>
     )

@@ -9,6 +9,7 @@ const Set = (props) => {
         <div key={props.setId} id={props.setId} className={`set-container`}>
             <div className={`accodion-button ${props?.cards?.reduce((a, v) => {return a + v.have}, 0) === props.cards.length ? "completed" : ""}`} onClick={() => setIsOpen(!isOpen)}>
                 <div className='set-name'>
+                    <img src={props.setIcon} alt={props.setName}/>
                     {props.setName}
                 </div>
                 <div className='quantity'>

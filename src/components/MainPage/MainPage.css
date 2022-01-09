@@ -29,6 +29,12 @@
     font-size: 16px;
 }
 
+.whole-container .main-container .title-container .title h1{
+    margin: 0px;
+    font-family: 'Fira Code';
+    font-size: 16px;
+}
+
 .result-container {
     display: flex;
     flex-direction: column;

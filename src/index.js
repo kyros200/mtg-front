@@ -8,18 +8,20 @@ import './main.css'
 
 ReactDOM.render(
   <React.StrictMode>
-    <ToastContainer
-      position="top-right"
-      autoClose={4000}
-      hideProgressBar
-      newestOnTop
-      closeOnClick
-      rtl={false}
-      pauseOnFocusLoss={false}
-      draggable={false}
-      pauseOnHover={false}
-    />
-    <MainPage />
+    <main>
+      <ToastContainer
+        position="top-right"
+        autoClose={4000}
+        hideProgressBar
+        newestOnTop
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss={false}
+        draggable={false}
+        pauseOnHover={false}
+      />
+      <MainPage />
+    </main>
   </React.StrictMode>,
   document.getElementById('root')
 );
