@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { toast } from 'react-toastify';
 import ReactLoading from 'react-loading';
 import Modal from '../Modal';
@@ -15,13 +15,8 @@ const MainPage = () => {
     const [data, setData] = useState({})
     const [count, setCount] = useState(0)
     const [countSets, setCountSets] = useState(0)
-    const [searchText, setSearchText] = useState("Chandra")
+    const [searchText, setSearchText] = useState("")
     const [searchSet, setSearchSet] = useState("")
-
-    useEffect(() => {
-        load();
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
 
     const load = () => {
         setIsLoading(true)
