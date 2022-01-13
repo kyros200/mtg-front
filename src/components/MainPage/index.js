@@ -4,7 +4,7 @@ import ReactLoading from 'react-loading';
 import Modal from '../Modal';
 import Set from '../Set';
 import Search from '../Search'
-import './MainPage.css';
+import './MainPage.scss';
 
 // const BACK_URL = "http://localhost:80"
 const BACK_URL = "https://najjar-mtg.herokuapp.com"
@@ -85,7 +85,9 @@ const MainPage = () => {
                 </Modal>
                 <div className={`title-container`}>
                     <div className={`title`}>
-                        <h1>najjar-mtg</h1>
+                        <h1>
+                            najjar-mtg
+                        </h1>
                     </div>
                 </div>
                 <Search 

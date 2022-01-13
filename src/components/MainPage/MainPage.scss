@@ -1,0 +1,40 @@
+@import '../../variables.scss';
+
+.whole-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .main-container {
+        width: $content-size-desk;
+
+        .title-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+
+            .title {
+                background-color: $secondary;
+                text-align: center;
+                user-select: none;
+
+                padding: 4px 8px;
+                margin: 12px;
+
+                border: 2px solid black;
+                border-radius: 8px;
+
+                h1 {
+                    margin: 0px;
+                    font-family: 'Fira Code';
+                    font-size: 16px;
+                }
+            }
+        }
+
+        .result-container {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}

@@ -1,0 +1,87 @@
+@import '../../variables.scss';
+
+.card-container {
+    width: 250px;
+    background-color: $background-gray-light;
+    border: 1px solid black;
+    border-radius: 8px;
+    padding: 6px;
+    margin: 8px 0px;
+
+    &.have {
+        background-color: $primary-light;
+    }
+
+    .name {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: flex;
+        justify-content: center;
+        margin-top: 4px;
+        margin-bottom: 8px;
+    }
+
+    .image {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin-bottom: 8px;
+
+        img {
+            border-radius: 12px;
+            width: 100%;
+        }
+    }
+
+    .prices {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 8px;
+    }
+
+    .links {
+        display: flex;
+        justify-content: space-around;
+        font-size: 12px;
+        margin-bottom: 8px;
+
+        a {
+            text-decoration: none;
+            color: black;
+            background-color: $background-gray;
+            border: 1px solid black;
+            border-radius: 12px;
+            padding: 4px;
+            transition: 0.1s;
+            text-align: center;
+
+            &:hover {
+                background-color: $background-gray-dark;
+            }
+        }
+    }
+
+    .button {
+        cursor: pointer;
+        font-size: 14px;
+        background-color: $primary-light;
+        border: 1px solid black;
+        border-radius: 12px;
+        padding: 6px;
+        transition: 0.1s;
+        text-align: center;
+
+        &:hover {
+            background-color: $primary;
+        }
+
+        &.red {
+            background-color: $background-gray-light;
+
+            &:hover {
+                background-color: $error;
+            }
+        }
+    }
+}

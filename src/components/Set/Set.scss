@@ -1,0 +1,39 @@
+@import '../../variables.scss';
+
+.set-container {
+    margin-bottom: 20px;
+
+    .accodion-button {
+        display: flex;
+        justify-content: space-between;
+        border: 1px solid black;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 32px;
+        padding: 8px;
+
+        .set-name {
+            display: flex;
+            align-items: center;
+
+            img {
+                height: 40px;
+                margin-right: 12px;
+            }
+        }
+
+        &.completed {
+            background-color: $primary;
+        }
+    }
+
+    .accordion-content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+
+        &.hide {
+            display: none;
+        }
+    }
+}

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Card from '../Card'
-import './Set.css'
+import './Set.scss'
 
 const Set = (props) => {
     const [isOpen, setIsOpen] = useState(false)

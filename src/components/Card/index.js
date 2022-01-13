@@ -1,4 +1,4 @@
-import './Card.css'
+import './Card.scss'
 import cardBack from '../../images/card_back.jpg'
 
 const Card = (props) => {
