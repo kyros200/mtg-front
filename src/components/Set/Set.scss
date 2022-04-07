@@ -25,6 +25,10 @@
         &.completed {
             background-color: $primary;
         }
+
+        &.partial {
+            background-color: yellow;
+        }
     }
 
     .accordion-content {
