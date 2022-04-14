@@ -13,7 +13,7 @@ const Card = (props) => {
     }
 
     return (
-        <div key={props.id} className={`card-container ${props.have ? "have" : ""}`}>
+        <div key={props.id} className={`card-container ${props.have ? "have" : ""} ${props.ban ? "banned" : ""}`}>
             <div className='name'>
                 {props.name}
             </div>

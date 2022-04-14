@@ -12,6 +12,10 @@
         background-color: $primary-light;
     }
 
+    &.banned {
+        background-color: $error;
+    }
+
     .name {
         white-space: nowrap;
         overflow: hidden;
