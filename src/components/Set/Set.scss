@@ -32,9 +32,40 @@
     }
 
     .accordion-content {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
+        .buttons-container {
+            display: flex;
+            justify-content: space-around;
+            margin: 16px 0;
+
+            .button {
+                cursor: pointer;
+                font-size: 28px;
+                background-color: $primary-light;
+                border: 1px solid black;
+                border-radius: 12px;
+                padding: 12px;
+                transition: 0.1s;
+                text-align: center;
+        
+                &:hover {
+                    background-color: $primary;
+                }
+        
+                &.red {
+                    background-color: $error;
+        
+                    &:hover {
+                        background-color: $error;
+                    }
+                }
+            }
+        }
+
+        .cards-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
 
         &.hide {
             display: none;

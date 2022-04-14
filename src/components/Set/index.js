@@ -29,7 +29,17 @@ const Set = (props) => {
                 </div>
             </div>
             <div className={`accordion-content ${isOpen ? "" : "hide"}`}>
-                {props.cards.map((card) => <Card collection={props.collection} {...card} />)}
+                <div className='buttons-container'>
+                    <div className='button' onClick={() => props.setFlags({data: props.cards.map((card) => card.id), have: 1})}>
+                        own all
+                    </div>
+                    <div className='button red' onClick={() => props.setFlags({data: props.cards.map((card) => card.id), ban: 1})}>
+                        ban all
+                    </div>
+                </div>
+                <div className='cards-container'>
+                    {props.cards.map((card) => <Card setFlags={props.setFlags} {...card} />)}
+                </div>
             </div>
         </div>
     )

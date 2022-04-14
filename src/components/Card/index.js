@@ -23,8 +23,11 @@ const Card = (props) => {
                     </div>
                 </a>
             </div>
-            <div className={`button ${props.have ? "red" : ""}`} onClick={() => props.collection(props)}>
+            <div className={`button ${props.have ? "red" : ""}`} onClick={() => props.setFlags({data: [props.id], have: !props.have})}>
                 {props.have ? "Remove from Collection" : "Add to Collection"}
+            </div>
+            <div className={`button ${props.ban ? "" : "red"}`} onClick={() => props.setFlags({data: [props.id], ban: !props.ban})}>
+                {props.ban ? "Unban Card" : "Ban Card"}
             </div>
         </div>
     )

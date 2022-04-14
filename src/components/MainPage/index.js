@@ -6,8 +6,8 @@ import Set from '../Set';
 import Search from '../Search'
 import './MainPage.scss';
 
-// const BACK_URL = "http://localhost:80"
-const BACK_URL = "https://najjar-mtg.herokuapp.com"
+const BACK_URL = "http://localhost:80"
+// const BACK_URL = "https://najjar-mtg.herokuapp.com"
 
 const MainPage = () => {
 
@@ -17,10 +17,11 @@ const MainPage = () => {
     const [countSets, setCountSets] = useState(0)
     const [searchText, setSearchText] = useState("")
     const [searchSet, setSearchSet] = useState("")
+    const [searchBanned, setSearchBanned] = useState(false)
 
-    const load = () => {
+    const load = (showInfo = true) => {
         setIsLoading(true)
-        fetch(`${BACK_URL}/search?name=${searchText}&setName=${searchSet}`)
+        fetch(`${BACK_URL}/search?name=${searchText}&setName=${searchSet}&searchBanned=${searchBanned}`)
         .then((res) => {
             if(res.status !== 200) {
                 throw(new Error("Something went wrong!"))
@@ -31,7 +32,8 @@ const MainPage = () => {
             setData(res.data);
             setCount(res.count);
             setCountSets(res.countSets)
-            toast.success(`${res.count} cards found!`)
+            if(showInfo)
+                toast.success(`${res.count} cards found!`)
         })
         .catch((e) => {
             toast.error(e)
@@ -42,12 +44,18 @@ const MainPage = () => {
         })
     }
 
-    const collection = (item) => {
-        let card = {...item}
-        delete card.collection; //useless info
+    const setFlags = (payload) => {
+        console.log(payload)
 
         setIsLoading(true)
-        fetch(`${BACK_URL}/collection?id=${card.id}&have=${card.have ? 0 : 1}`)
+        fetch(`${BACK_URL}/collection`, {
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+            },
+            method: "POST",
+            body: JSON.stringify(payload)
+        })
         .then((res) => {
             if(res.status !== 200) {
                 throw(new Error("Something went wrong!"))
@@ -55,14 +63,17 @@ const MainPage = () => {
             return res.json()
         })
         .then(() => {
-            let newData = {...data}
+            load(false)
+            toast.success(`Changes saved!`);
+            //TODO: INSTEAD OF DOING load(), CHANGE CARDS STATE ON LOCAL INFO
+            // let newData = {...data}
 
-            const index = newData[card.setId].cards.map((item) => item.id).indexOf(card.id);
+            // const index = newData[card.setId].cards.map((item) => item.id).indexOf(card.id);
 
-            newData[card.setId].cards[index] = {...card, have: card.have ? 0 : 1};
+            // newData[card.setId].cards[index] = {...card, have: card.have ? 0 : 1};
             
-            setData(newData);
-            toast.success(`${card.name} ${card.have ? "removed" : "added"} from collection!`)
+            // setData(newData);
+            // toast.success(`${card.name} ${card.have ? "removed" : "added"} from collection!`)
         })
         .catch((e) => {
             toast.error(e)
@@ -74,7 +85,7 @@ const MainPage = () => {
     }
 
     const renderSets = () => {
-        return Object.keys(data).map((set) => <Set key={set.setId} collection={collection} {...data[set]}/>)
+        return Object.keys(data).map((set) => <Set key={set.setId} setFlags={setFlags} {...data[set]}/>)
     }
 
     return (
@@ -96,6 +107,7 @@ const MainPage = () => {
                     countSets={countSets}
                     setSearchText={setSearchText}
                     setSearchSet={setSearchSet}
+                    setSearchBanned={setSearchBanned}
                     load={load}
                 />
                 <div className={`result-container`}>
