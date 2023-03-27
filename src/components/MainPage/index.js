@@ -7,7 +7,7 @@ import Search from '../Search'
 import './MainPage.scss';
 
 // const BACK_URL = "http://localhost:80"
-const BACK_URL = "https://najjar-mtg.herokuapp.com"
+const BACK_URL = "https://mtg-back.onrender.com"
 
 const MainPage = () => {
 
