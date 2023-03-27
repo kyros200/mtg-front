@@ -21,7 +21,9 @@ const MainPage = () => {
 
     const load = (showInfo = true) => {
         setIsLoading(true)
-        fetch(`${BACK_URL}/search?name=${searchText}&setName=${searchSet}&searchBanned=${searchBanned}`)
+        fetch(`${BACK_URL}/search?name=${searchText}&setName=${searchSet}&searchBanned=${searchBanned}`, {headers: {
+            'Host': "rpi.najjar.dev"
+        }})
         .then((res) => {
             if(res.status !== 200) {
                 throw(new Error("Something went wrong!"))
@@ -51,7 +53,8 @@ const MainPage = () => {
         fetch(`${BACK_URL}/collection`, {
             headers: {
               'Accept': 'application/json',
-              'Content-Type': 'application/json'
+              'Content-Type': 'application/json',
+              'Host': "rpi.najjar.dev"
             },
             method: "POST",
             body: JSON.stringify(payload)
