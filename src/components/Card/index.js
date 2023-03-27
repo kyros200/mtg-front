@@ -18,7 +18,7 @@ const Card = (props) => {
                 {props.name}
             </div>
             <div className='image'>
-                <img src={`https://c1.scryfall.com/file/scryfall-cards/normal${props.imageUrl}` || cardBack} alt={props.name} loading="lazy"/>
+                <img src={props.imageUrl || cardBack} alt={props.name} loading="lazy"/>
             </div>
             <div className='price-container'>
                 <div className={`button`} onClick={() => setEditPanel(!editPanel)}>
@@ -42,7 +42,7 @@ const Card = (props) => {
                     </div>
                     :
                     <div className='link'>
-                        <a href={`https://www.tcgplayer.com/product/${props.urlTcg}?page=1&utm_campaign=affiliate&utm_medium=api&utm_source=scryfall`} target={"_blank"} rel="noreferrer">
+                        <a href={props.urlTcg} target={"_blank"} rel="noreferrer">
                             TCGPlayer
                         </a>
                     </div>

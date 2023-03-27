@@ -21,9 +21,7 @@ const MainPage = () => {
 
     const load = (showInfo = true) => {
         setIsLoading(true)
-        fetch(`${BACK_URL}/search?name=${searchText}&setName=${searchSet}&searchBanned=${searchBanned}`, {headers: {
-            'Host': "rpi.najjar.dev"
-        }})
+        fetch(`${BACK_URL}/search?name=${searchText}&setName=${searchSet}&searchBanned=${searchBanned}`)
         .then((res) => {
             if(res.status !== 200) {
                 throw(new Error("Something went wrong!"))
@@ -53,8 +51,7 @@ const MainPage = () => {
         fetch(`${BACK_URL}/collection`, {
             headers: {
               'Accept': 'application/json',
-              'Content-Type': 'application/json',
-              'Host': "rpi.najjar.dev"
+              'Content-Type': 'application/json'
             },
             method: "POST",
             body: JSON.stringify(payload)
@@ -100,7 +97,7 @@ const MainPage = () => {
                 <div className={`title-container`}>
                     <div className={`title`}>
                         <h1>
-                            najjar-mtg
+                            NajjarMtg
                         </h1>
                     </div>
                 </div>

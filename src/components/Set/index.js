@@ -21,7 +21,7 @@ const Set = (props) => {
         <div key={props.setId} id={props.setId} className={`set-container`}>
             <div className={`accodion-button ${getSetColor()}`} onClick={() => setIsOpen(!isOpen)}>
                 <div className='set-name'>
-                    <img src={`https://c2.scryfall.com/file/scryfall-symbols/sets/${props.setIcon}.svg?1649044800`} alt={props.setName}/>
+                    <img src={props.setIcon} alt={props.setName}/>
                     {props.setName}
                 </div>
                 <div className='quantity'>
