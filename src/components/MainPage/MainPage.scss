@@ -2,39 +2,100 @@
 
 .whole-container {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
 
+    .header-container {
+        width: 100%;
+        position: fixed;
+        top: 0;
+        background-color: $primary-dark;
+        text-align: center;
+        user-select: none;
+    
+        padding: 10px 0px;
+    
+        font-family: 'Righteous', cursive;
+        text-decoration: none;
+        color: #f0f8ff;
+        font-size: 40px;
+        line-height: 40px;
+        user-select: none;
+    }
+
     .main-container {
-        width: $content-size-desk;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
 
-        .title-container {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 40px;
-
-            .title {
-                background-color: $secondary;
-                text-align: center;
-                user-select: none;
-
-                padding: 4px 8px;
-                margin: 12px;
-
-                border: 2px solid black;
-                border-radius: 8px;
-
-                h1 {
-                    margin: 0px;
-                    font-family: 'Fira Code';
-                    font-size: 16px;
-                }
-            }
-        }
+        margin: 60px 0px;
 
         .result-container {
+            width: $content-size-desk;
             display: flex;
             flex-direction: column;
+            justify-content: center;
+
+            @media screen and (max-width: $mobile) {
+                width: 95%;
+            }
+        }
+    }
+
+
+    .footer {
+        width: 100%;
+        position: fixed;
+        bottom: 0;
+        box-sizing: border-box;
+        background-color: #2b6535;
+        text-align: end;
+        user-select: none;
+    
+        padding: 10px 16px;
+        margin-top: 20px;
+    
+        text-decoration: none;
+        color: #f0f8ff;
+        user-select: none;
+
+        :not(:first-child) {
+            margin-top: 12px;
+        }
+        
+        .text {
+            text-align: end;
+            user-select: none;
+            text-decoration: none;
+            color: #f0f8ff;
+            user-select: none;
+
+
+            >.hatch {
+                font-size: 22px;
+                
+                .link {
+                    font-family: 'Righteous', cursive;
+                    color: #f0f8ff;
+                    text-decoration: none;
+                    user-select: none;
+                    display: inline; /* should be 'inline' for multiple line animation */
+                    background-image: linear-gradient(to right, #f0f8ff, #9FD39C);
+                    background-size: 0% 3px;
+                    background-repeat: no-repeat;
+                    transition: background-size 0.3s;
+                    background-position: 0 calc(100% - 0px);
+                
+                    &:hover {
+                        background-size: 100% 3px;
+                    }
+                
+                    &.bold {
+                        font-weight: 700;
+                    }
+                }
+            }
         }
     }
 }

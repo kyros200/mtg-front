@@ -90,17 +90,13 @@ const MainPage = () => {
 
     return (
         <div className='whole-container'>
+            <div className={`header-container`}>
+                    NajjarMtg.
+            </div>
             <div className={`main-container`}>
                 <Modal open={isLoading}>
                     <ReactLoading type={"spin"} color="#2B912D" />
                 </Modal>
-                <div className={`title-container`}>
-                    <div className={`title`}>
-                        <h1>
-                            NajjarMtg
-                        </h1>
-                    </div>
-                </div>
                 <Search 
                     data={data}
                     count={count} 
@@ -112,6 +108,14 @@ const MainPage = () => {
                 />
                 <div className={`result-container`}>
                     {renderSets()}
+                </div>
+            </div>
+            <div className={`footer`}>
+                <div className='text'>
+                    <span className="hatch"><a href="https://hatch.najjar.dev" target="_blank" rel="noreferrer" className="link">Hatch.</a></span> know who I am.
+                </div>
+                <div className='text'>
+                    {new Date().getFullYear()} Made by Rafael Najjar
                 </div>
             </div>
         </div>
