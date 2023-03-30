@@ -22,6 +22,7 @@
         font-size: 40px;
         line-height: 40px;
         user-select: none;
+        z-index: 3;
     }
 
     .main-container {
@@ -59,6 +60,7 @@
         text-decoration: none;
         color: #f0f8ff;
         user-select: none;
+        z-index: 3;
 
         :not(:first-child) {
             margin-top: 12px;

@@ -15,6 +15,10 @@ const Search = (props) => {
                 <div>
                     Search Banned?
                 </div>
+                <input checked={props?.searchOwned} type="checkbox" className='' value={props?.searchOwned} onChange={(e) => props.setSearchOwned(e.target.checked)}/>
+                <div>
+                    Search Owned?
+                </div>
                 <div className='button' onClick={() => props.load()}>Search</div>
             </div>
             <div className='search-count-result'>

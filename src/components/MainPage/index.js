@@ -18,10 +18,11 @@ const MainPage = () => {
     const [searchText, setSearchText] = useState("")
     const [searchSet, setSearchSet] = useState("")
     const [searchBanned, setSearchBanned] = useState(false)
+    const [searchOwned, setSearchOwned] = useState(true)
 
     const load = (showInfo = true) => {
         setIsLoading(true)
-        fetch(`${BACK_URL}/search?name=${searchText}&setName=${searchSet}&searchBanned=${searchBanned}`)
+        fetch(`${BACK_URL}/search?name=${searchText}&setName=${searchSet}&searchBanned=${searchBanned}&searchOwned=${searchOwned}`)
         .then((res) => {
             if(res.status !== 200) {
                 throw(new Error("Something went wrong!"))
@@ -104,6 +105,8 @@ const MainPage = () => {
                     setSearchText={setSearchText}
                     setSearchSet={setSearchSet}
                     setSearchBanned={setSearchBanned}
+                    searchOwned={searchOwned}
+                    setSearchOwned={setSearchOwned}
                     load={load}
                 />
                 <div className={`result-container`}>

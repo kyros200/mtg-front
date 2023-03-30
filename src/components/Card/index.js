@@ -19,6 +19,9 @@ const Card = (props) => {
             </div>
             <div className='image'>
                 <img src={props.imageUrl || cardBack} alt={props.name} loading="lazy"/>
+                {props.imageUrl.split(",").length > 1 ?
+                <img className='otherSide' src={props.imageUrl.split(",")[1] || cardBack} alt={props.name} loading="lazy"/>
+                :<></>}
             </div>
             <div className='price-container'>
                 <div className={`button`} onClick={() => setEditPanel(!editPanel)}>

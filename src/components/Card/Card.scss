@@ -38,6 +38,15 @@
         }
     }
 
+    .otherSide {
+        display: none;
+    }
+
+    .image:hover .otherSide {
+        display: block;
+        z-index: 2;
+    }
+
     .price-container {
         display: flex;
         align-items: center;
