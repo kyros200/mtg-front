@@ -7,18 +7,29 @@
         display: flex;
         justify-content: space-between;
         border: 1px solid black;
-        border-radius: 8px;
+        box-shadow: 5px 5px;
         cursor: pointer;
         font-size: 32px;
         padding: 8px;
+
+        background-color: #f0f8ff;
+
+        transition: all 0.3s;
 
         .set-name {
             display: flex;
             align-items: center;
 
-            img {
+            .icon-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 50px;
                 height: 40px;
-                margin-right: 12px;
+                img {
+                    max-height: 100%;
+                    margin-right: 12px;
+                }
             }
         }
 
@@ -29,6 +40,10 @@
         &.partial {
             background-color: yellow;
         }
+
+        &:hover {
+            filter: brightness(85%);
+        }
     }
 
     .accordion-content {
@@ -38,25 +53,9 @@
             margin: 16px 0;
 
             .button {
-                cursor: pointer;
-                font-size: 28px;
-                background-color: $primary-light;
-                border: 1px solid black;
-                border-radius: 12px;
-                padding: 12px;
-                transition: 0.1s;
-                text-align: center;
-        
-                &:hover {
-                    background-color: $primary;
-                }
-        
+                font-size: 24px;
                 &.red {
                     background-color: $error;
-        
-                    &:hover {
-                        background-color: $error;
-                    }
                 }
             }
         }

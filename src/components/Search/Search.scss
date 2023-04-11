@@ -19,19 +19,8 @@
             padding: 6px;
         }
 
-        .button {
-            cursor: pointer;
-            font-size: 14px;
-            background-color: $primary-light;
-            border: 1px solid black;
-            border-radius: 12px;
-            padding: 6px;
-            transition: 0.1s;
-            margin-left: 8px;
-
-            &:hover {
-                background-color: $primary;
-            }
+        >.button {
+            margin-left: 10px;
         }
     }
 

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Card from '../Card'
+import Button from '../shared/Button'
 import './Set.scss'
 
 const Set = (props) => {
@@ -21,7 +22,9 @@ const Set = (props) => {
         <div key={props.setId} id={props.setId} className={`set-container`}>
             <div className={`accodion-button ${getSetColor()}`} onClick={() => setIsOpen(!isOpen)}>
                 <div className='set-name'>
-                    <img src={props.setIcon} alt={props.setName}/>
+                    <div className='icon-container'>
+                        <img src={props.setIcon} alt={props.setName}/>
+                    </div>
                     {props.setName}
                 </div>
                 <div className='quantity'>
@@ -31,12 +34,12 @@ const Set = (props) => {
             <div className={`accordion-content ${isOpen ? "" : "hide"}`}>
                 {props.isEdit ?
                 <div className='buttons-container'>
-                    <div className='button' onClick={() => props.setFlags({data: props.cards.map((card) => card.id), have: 1})}>
-                        own all
-                    </div>
-                    <div className='button red' onClick={() => props.setFlags({data: props.cards.map((card) => card.id), ban: 1})}>
-                        ban all
-                    </div>
+                    <Button className='button' onClick={() => props.setFlags({data: props.cards.map((card) => card.id), have: 1})}>
+                        Own All
+                    </Button>
+                    <Button className='button red' onClick={() => props.setFlags({data: props.cards.map((card) => card.id), ban: 1})}>
+                        Ban All
+                    </Button>
                 </div>
                 :<></>}
                 <div className='cards-container'>
