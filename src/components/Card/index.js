@@ -24,9 +24,11 @@ const Card = (props) => {
                 :<></>}
             </div>
             <div className='price-container'>
+                {props.isEdit?
                 <div className={`button`} onClick={() => setEditPanel(!editPanel)}>
                     E
                 </div>
+                :<></>}
                 {editPanel ?
                 <>
                     <input className='input' placeholder='Value...' value={alexPrice} onChange={(e) => setAlexPrice(e.target.value)}/>
@@ -53,12 +55,16 @@ const Card = (props) => {
                 </>
                 }
             </div>
-            <div className={`button ${props.have ? "red" : ""}`} onClick={() => props.setFlags({data: [props.id], have: !props.have})}>
-                {props.have ? "Remove from Collection" : "Add to Collection"}
-            </div>
-            <div className={`button ${props.ban ? "" : "red"}`} onClick={() => props.setFlags({data: [props.id], ban: !props.ban})}>
-                {props.ban ? "Unban Card" : "Ban Card"}
-            </div>
+            {props.isEdit?
+            <>
+                <div className={`button ${props.have ? "red" : ""}`} onClick={() => props.setFlags({data: [props.id], have: !props.have})}>
+                    {props.have ? "Remove from Collection" : "Add to Collection"}
+                </div>
+                <div className={`button ${props.ban ? "" : "red"}`} onClick={() => props.setFlags({data: [props.id], ban: !props.ban})}>
+                    {props.ban ? "Unban Card" : "Ban Card"}
+                </div>
+            </>
+            :<></>}
         </div>
     )
 }

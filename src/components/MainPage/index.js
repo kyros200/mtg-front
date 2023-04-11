@@ -9,7 +9,7 @@ import './MainPage.scss';
 // const BACK_URL = "http://localhost:80"
 const BACK_URL = "https://mtg-back.onrender.com"
 
-const MainPage = () => {
+const MainPage = ({ isEdit }) => {
 
     const [isLoading, setIsLoading] = useState(false)
     const [data, setData] = useState({})
@@ -86,40 +86,27 @@ const MainPage = () => {
     }
 
     const renderSets = () => {
-        return Object.keys(data).map((set) => <Set key={set.setId} setFlags={setFlags} {...data[set]}/>)
+        return Object.keys(data).map((set) => <Set key={set.setId} setFlags={setFlags} isEdit={isEdit} {...data[set]}/>)
     }
 
     return (
-        <div className='whole-container'>
-            <div className={`header-container`}>
-                    NajjarMtg.
-            </div>
-            <div className={`main-container`}>
-                <Modal open={isLoading}>
-                    <ReactLoading type={"spin"} color="#2B912D" />
-                </Modal>
-                <Search 
-                    data={data}
-                    count={count} 
-                    countSets={countSets}
-                    setSearchText={setSearchText}
-                    setSearchSet={setSearchSet}
-                    setSearchBanned={setSearchBanned}
-                    searchOwned={searchOwned}
-                    setSearchOwned={setSearchOwned}
-                    load={load}
-                />
-                <div className={`result-container`}>
-                    {renderSets()}
-                </div>
-            </div>
-            <div className={`footer`}>
-                <div className='text'>
-                    <span className="hatch"><a href="https://hatch.najjar.dev" target="_blank" rel="noreferrer" className="link">Hatch.</a></span> know who I am.
-                </div>
-                <div className='text'>
-                    {new Date().getFullYear()} Made by Rafael Najjar
-                </div>
+        <div className={`main-container`}>
+            <Modal open={isLoading}>
+                <ReactLoading type={"spin"} color="#2B912D" />
+            </Modal>
+            <Search 
+                data={data}
+                count={count} 
+                countSets={countSets}
+                setSearchText={setSearchText}
+                setSearchSet={setSearchSet}
+                setSearchBanned={setSearchBanned}
+                searchOwned={searchOwned}
+                setSearchOwned={setSearchOwned}
+                load={load}
+            />
+            <div className={`result-container`}>
+                {renderSets()}
             </div>
         </div>
     )

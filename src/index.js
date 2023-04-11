@@ -5,6 +5,13 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './main.scss'
 
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
+import PageLayout from './layouts/PageLayout';
+
 ReactDOM.render(
   <React.StrictMode>
     <main>
@@ -19,7 +26,14 @@ ReactDOM.render(
         draggable={false}
         pauseOnHover={false}
       />
-      <MainPage />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<PageLayout />}>
+            <Route index element={<MainPage isEdit={false} />} />
+            <Route path="edit" element={<MainPage isEdit={true} />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </main>
   </React.StrictMode>,
   document.getElementById('root')

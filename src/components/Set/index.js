@@ -29,6 +29,7 @@ const Set = (props) => {
                 </div>
             </div>
             <div className={`accordion-content ${isOpen ? "" : "hide"}`}>
+                {props.isEdit ?
                 <div className='buttons-container'>
                     <div className='button' onClick={() => props.setFlags({data: props.cards.map((card) => card.id), have: 1})}>
                         own all
@@ -37,8 +38,9 @@ const Set = (props) => {
                         ban all
                     </div>
                 </div>
+                :<></>}
                 <div className='cards-container'>
-                    {props.cards.map((card) => <Card setFlags={props.setFlags} {...card} />)}
+                    {props.cards.map((card) => <Card setFlags={props.setFlags} isEdit={props.isEdit} {...card} />)}
                 </div>
             </div>
         </div>
